@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katalog Menu - Isah Snack & Coffee</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <%- include("partials/navbar") %>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Katalog Menu</h1>
+      <p>Pilih makanan dan minuman favoritmu!</p>
+    </section>
+
+    <section class="filter">
+      <h2>Filter Kategori</h2>
+
+      <a href="/" class="filter-link">Semua</a>
+      <a href="/?kategori=kopi" class="filter-link">Kopi</a>
+      <a href="/?kategori=minuman" class="filter-link">Minuman</a>
+      <a href="/?kategori=makanan" class="filter-link">Makanan</a>
+
+      <p>
+        Kategori dipilih:
+        <strong><%= kategori %></strong>
+      </p>
+    </section>
+
+    <section class="menu-grid">
+      <% if (daftarMenu.length === 0) { %>
+        <p>Menu untuk kategori ini belum tersedia.</p>
+      <% } %>
+
+      <% daftarMenu.forEach((menu) => { %>
+        <article class="menu-card">
+          <div class="menu-image">
+            <span><%= menu.nama %></span>
+          </div>
+
+          <div class="menu-info">
+            <p class="category"><%= menu.kategori %></p>
+            <h2><%= menu.nama %></h2>
+            <p class="price">
+              Rp <%= menu.harga.toLocaleString("id-ID") %>
+            </p>
+
+            <a href="/menu/<%= menu.id %>" class="detail-link">
+              Lihat Detail
+            </a>
+          </div>
+        </article>
+      <% }) %>
+    </section>
+  </main>
+
+  <%- include("partials/footer") %>
+</body>
+</html>

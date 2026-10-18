@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Menu - Isah Snack & Coffee</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <%- include("partials/navbar") %>
+
+  <main class="container">
+    <section class="detail-card">
+      <p class="category"><%= menu.kategori %></p>
+      <h1><%= menu.nama %></h1>
+
+      <div class="menu-image detail-image">
+        <span><%= menu.nama %></span>
+      </div>
+
+      <p class="price">
+        Rp <%= menu.harga.toLocaleString("id-ID") %>
+      </p>
+
+      <p><%= menu.deskripsi %></p>
+
+      <a href="/" class="detail-link">Kembali ke Katalog</a>
+    </section>
+  </main>
+
+  <%- include("partials/footer") %>
+</body>
+</html>
